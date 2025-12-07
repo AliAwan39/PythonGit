@@ -12,10 +12,18 @@
 # while(i<=10) :
 #     print("hello: ",i)
 #     i = i+1
-import datetime
+#import datetime
 
-print(datetime.datetime.now())
-names = ["ali", "hassan", "ahmad", "ahsan"]
+#print(datetime.datetime.now())
+#names = ["ali", "hassan", "ahmad", "ahsan"]
 
-for  i in names:
-    print("Name: ", i)
+#for  i in names:
+#print("Name: ", i)
+
+fact = int(input("Enter a number to find Factorial: "))
+if(fact > 1):
+    for i in range(1,fact):
+        fact *=i
+    print("Factorial is : ", fact)
+else:
+    print("can't find a factorial of number: ", fact)
