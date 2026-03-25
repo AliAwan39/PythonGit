@@ -1,3 +1,6 @@
+print("welcome to python git repository")
+print("This is a CI turorial for git & jenkins")
+
 # n1 = input("enter first nunmber! ")
 # n2 = input("\n enter second number! ")
 # sum = int(n1) + int(n2)
@@ -20,10 +23,10 @@
 #for  i in names:
 #print("Name: ", i)
 
-fact = int(input("Enter a number to find Factorial: "))
-if(fact > 1):
-    for i in range(1,fact):
-        fact *=i
-    print("Factorial is : ", fact)
-else:
-    print("can't find a factorial of number: ", fact)
+# fact = int(input("Enter a number to find Factorial: "))
+# if(fact > 1):
+#     for i in range(1,fact):
+#         fact *=i
+#     print("Factorial is : ", fact)
+# else:
+#     print("can't find a factorial of number: ", fact)
