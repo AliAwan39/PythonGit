@@ -44,16 +44,16 @@ pipeline{
                 archiveArtifacts artifacts: 'build/*', fingerprint: true
             }
         }
-        post {
-            always {
-                echo 'pipeline finished...'
-            }
-            success {
-                echo 'pipeline succeeded...'
-            }
-            failure {
-                echo 'pipeline failed...'   
-            }
+    }
+    post {
+        always {
+            echo 'pipeline finished...'
+        }
+        success {
+            echo 'pipeline succeeded...'
+        }
+        failure {
+            echo 'pipeline failed...'   
         }
     }
 }
