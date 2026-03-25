@@ -1,41 +1,46 @@
-pipeline{
+pipeline {
     agent any
-    
-    triggers{
+
+    triggers {
         githubPush()
     }
 
-    stages{
-        stage('Checkout Code'){
-            steps{
-                echo 'Checking out the code...'
-                git "https://github.com/AliAwan39/PythonGit.git"
+    stages {
+
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/AliAwan39/PythonGit.git'
             }
         }
-        stage('setup environment'){
-            steps{
-                echo 'setting up environment...'
-                sh 'python -m venv venv'
-                sh 'source venv/bin/activate'
-                sh 'venv/bin/pip install -r requirements.txt'
+
+        stage('Setup Environment') {
+            steps {
+                sh '''
+                python3 -m venv venv
+                venv/bin/pip install -r requirements.txt
+                '''
             }
         }
+
         stage('Lint Code') {
             steps {
                 sh 'venv/bin/pip install flake8'
                 sh 'venv/bin/flake8 . || true'
             }
         }
+
         stage('Run Tests') {
             steps {
                 sh 'venv/bin/pytest'
             }
         }
+
         stage('Build') {
             steps {
-                sh 'echo "Building project..."'
-                sh 'mkdir -p build'
-                sh 'cp hello.py build/'
+                sh '''
+                mkdir -p build
+                cp hello.py build/
+                '''
             }
         }
 
@@ -45,6 +50,7 @@ pipeline{
             }
         }
     }
+
     post {
         always {
             echo 'pipeline finished...'
@@ -53,7 +59,7 @@ pipeline{
             echo 'pipeline succeeded...'
         }
         failure {
-            echo 'pipeline failed...'   
+            echo 'pipeline failed...'
         }
     }
 }
