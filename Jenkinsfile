@@ -9,7 +9,7 @@ pipeline{
         stage('Checkout Code'){
             steps{
                 echo 'Checking out the code...'
-                git branch: 'main', url: 'https://github.com/AliAwan39/PythonGit.git'
+                git "https://github.com/AliAwan39/PythonGit.git"
             }
         }
         stage('setup environment'){
